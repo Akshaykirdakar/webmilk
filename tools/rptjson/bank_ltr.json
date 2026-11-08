@@ -1,0 +1,531 @@
+﻿{
+    "sel":  "",
+    "sql":  "",
+    "margins":  [
+                    360,
+                    360,
+                    360,
+                    360
+                ],
+    "orient":  1,
+    "formulas":  [
+                     {
+                         "n":  "wamt",
+                         "t":  "NoToWords ({?amt})\r\n"
+                     },
+                     {
+                         "n":  "mn",
+                         "t":  "mmcMarMon (Month ({?fdate}))\r\n"
+                     },
+                     {
+                         "n":  "yy",
+                         "t":  "Year ({?fdate})\r\n"
+                     }
+                 ],
+    "running":  [
+
+                ],
+    "params":  [
+                   "amt",
+                   "fdate",
+                   "tdate"
+               ],
+    "areas":  [
+                  {
+                      "c":  null,
+                      "s":  [
+                                "Section3"
+                            ],
+                      "k":  1,
+                      "n":  "Area3"
+                  },
+                  {
+                      "c":  null,
+                      "s":  [
+                                "Section1",
+                                "Section6",
+                                "Section7"
+                            ],
+                      "k":  2,
+                      "n":  "Area1"
+                  },
+                  {
+                      "c":  null,
+                      "s":  [
+                                "Section5"
+                            ],
+                      "k":  4,
+                      "n":  "Area5"
+                  },
+                  {
+                      "c":  null,
+                      "s":  [
+                                "Section4"
+                            ],
+                      "k":  8,
+                      "n":  "Area4"
+                  },
+                  {
+                      "c":  null,
+                      "s":  [
+                                "Section2"
+                            ],
+                      "k":  7,
+                      "n":  "Area2"
+                  }
+              ],
+    "sections":  [
+                     {
+                         "n":  "Section3",
+                         "h":  1860,
+                         "sup":  false,
+                         "np":  [
+                                    false,
+                                    false
+                                ],
+                         "ka":  true,
+                         "o":  [
+                                   {
+                                       "k":  1,
+                                       "n":  "Field54",
+                                       "x":  120,
+                                       "y":  120,
+                                       "w":  10920,
+                                       "h":  552,
+                                       "Suppress":  false,
+                                       "HorAlignment":  2,
+                                       "DecimalPlaces":  2,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  true,
+                                       "SuppressIfDuplicated":  false,
+                                       "DateOrder":  0,
+                                       "YearType":  0,
+                                       "MonthType":  1,
+                                       "DayType":  1,
+                                       "DateFirstSeparator":  "-",
+                                       "DateSecondSeparator":  "-",
+                                       "ThousandsSeparators":  true,
+                                       "SuppressIfZero":  false,
+                                       "UseSystemDefaults":  true,
+                                       "f":  "ReportTitle",
+                                       "font":  "DVBW-TTGanesh",
+                                       "size":  26.25,
+                                       "bold":  true,
+                                       "ital":  false,
+                                       "und":  false
+                                   },
+                                   {
+                                       "k":  4,
+                                       "n":  "Box1",
+                                       "x":  75,
+                                       "y":  1410,
+                                       "w":  null,
+                                       "h":  null,
+                                       "Suppress":  false,
+                                       "LineColor":  0,
+                                       "Right":  11040,
+                                       "Bottom":  480,
+                                       "LineStyle":  1,
+                                       "LineThickness":  20,
+                                       "ExtendToBottomOfSection":  false,
+                                       "CornerEllipseHeight":  0,
+                                       "FillColor":  4294967295
+                                   }
+                               ]
+                     },
+                     {
+                         "n":  "Section1",
+                         "h":  4095,
+                         "sup":  false,
+                         "np":  [
+                                    false,
+                                    false
+                                ],
+                         "ka":  true,
+                         "o":  [
+                                   {
+                                       "k":  2,
+                                       "n":  "Text1",
+                                       "x":  1080,
+                                       "y":  360,
+                                       "w":  1679,
+                                       "h":  480,
+                                       "Suppress":  false,
+                                       "HorAlignment":  1,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  false,
+                                       "SuppressIfDuplicated":  false,
+                                       "t":  "¯ÖÏŸÖß",
+                                       "font":  "DVBW-TTSurekh",
+                                       "size":  21.75,
+                                       "bold":  true,
+                                       "ital":  false,
+                                       "und":  false
+                                   },
+                                   {
+                                       "k":  2,
+                                       "n":  "Text2",
+                                       "x":  1080,
+                                       "y":  960,
+                                       "w":  4800,
+                                       "h":  360,
+                                       "Suppress":  false,
+                                       "HorAlignment":  1,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  false,
+                                       "SuppressIfDuplicated":  false,
+                                       "t":  "´ÖÖ. ¿ÖÖÜÖÖ †×¬ÖÛúÖ¸üß ÃÖÖÆêü²Ö",
+                                       "font":  "DVBW-TTSurekh",
+                                       "size":  21.75,
+                                       "bold":  true,
+                                       "ital":  false,
+                                       "und":  false
+                                   },
+                                   {
+                                       "k":  2,
+                                       "n":  "Text3",
+                                       "x":  1080,
+                                       "y":  1440,
+                                       "w":  7800,
+                                       "h":  450,
+                                       "Suppress":  false,
+                                       "HorAlignment":  1,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  false,
+                                       "SuppressIfDuplicated":  false,
+                                       "t":  "×¤ü. ÃÖÖê»ÖÖ¯Öæ¸ü ×•Ö»ÆüÖ ´Ö¬µÖ¾ÖŸÖá ÃÖÆüÛúÖ¸üß ²ÖÑÛú ×»Ö., ÃÖÖê»ÖÖ¯Öæ¸ü",
+                                       "font":  "DVBW-TTSurekh",
+                                       "size":  21.75,
+                                       "bold":  true,
+                                       "ital":  false,
+                                       "und":  false
+                                   },
+                                   {
+                                       "k":  2,
+                                       "n":  "Text4",
+                                       "x":  1080,
+                                       "y":  2640,
+                                       "w":  10080,
+                                       "h":  442,
+                                       "Suppress":  false,
+                                       "HorAlignment":  1,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  true,
+                                       "SuppressIfDuplicated":  false,
+                                       "t":  "×¾ÖÂÖµÖ-  ×¤ü.[]  ŸÖê  [] ¤ãü¬Ö ¯Öê´Öë™ü ¸üŒÛú´Ö ÃÖê¾ÆüàÝ•Ö ÜÖÖŸÖß ¾ÖÝÖÔ Ûú¸üÞÖê ²ÖÖ²ÖŸÖ",
+                                       "font":  "DVBW-TTSurekh",
+                                       "size":  20.25,
+                                       "bold":  true,
+                                       "ital":  false,
+                                       "und":  false
+                                   },
+                                   {
+                                       "k":  2,
+                                       "n":  "Text5",
+                                       "x":  1080,
+                                       "y":  1920,
+                                       "w":  5240,
+                                       "h":  480,
+                                       "Suppress":  false,
+                                       "HorAlignment":  1,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  false,
+                                       "SuppressIfDuplicated":  false,
+                                       "t":  "¿ÖÖÜÖÖ- µÖ¿Ö¾ÖÓŸÖ®ÖÝÖ¸ü ŸÖÖ.´ÖÖôû×¿Ö¸üÃÖ ×•Ö. ÃÖÖê»ÖÖ¯Öæ¸ü",
+                                       "font":  "DVBW-TTSurekh",
+                                       "size":  21.75,
+                                       "bold":  true,
+                                       "ital":  false,
+                                       "und":  false
+                                   },
+                                   {
+                                       "k":  2,
+                                       "n":  "Text6",
+                                       "x":  1080,
+                                       "y":  3600,
+                                       "w":  960,
+                                       "h":  480,
+                                       "Suppress":  false,
+                                       "HorAlignment":  1,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  false,
+                                       "SuppressIfDuplicated":  false,
+                                       "t":  "´ÖÆüÖê¤üµÖ,",
+                                       "font":  "DVBW-TTSurekh",
+                                       "size":  21.75,
+                                       "bold":  true,
+                                       "ital":  false,
+                                       "und":  false
+                                   },
+                                   {
+                                       "k":  2,
+                                       "n":  "Text7",
+                                       "x":  6600,
+                                       "y":  120,
+                                       "w":  840,
+                                       "h":  480,
+                                       "Suppress":  false,
+                                       "HorAlignment":  1,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  false,
+                                       "SuppressIfDuplicated":  false,
+                                       "t":  "×¤ü®ÖÖÓÛú ",
+                                       "font":  "DVBW-TTSurekh",
+                                       "size":  18,
+                                       "bold":  true,
+                                       "ital":  false,
+                                       "und":  false
+                                   },
+                                   {
+                                       "k":  1,
+                                       "n":  "Field1",
+                                       "x":  7680,
+                                       "y":  120,
+                                       "w":  1529,
+                                       "h":  369,
+                                       "Suppress":  false,
+                                       "HorAlignment":  0,
+                                       "DecimalPlaces":  2,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  false,
+                                       "SuppressIfDuplicated":  false,
+                                       "DateOrder":  1,
+                                       "YearType":  1,
+                                       "MonthType":  1,
+                                       "DayType":  1,
+                                       "DateFirstSeparator":  "/",
+                                       "DateSecondSeparator":  "/",
+                                       "ThousandsSeparators":  true,
+                                       "SuppressIfZero":  false,
+                                       "UseSystemDefaults":  false,
+                                       "f":  "PrintDate",
+                                       "font":  "DVB-TTYogesh",
+                                       "size":  18,
+                                       "bold":  true,
+                                       "ital":  false,
+                                       "und":  false
+                                   }
+                               ]
+                     },
+                     {
+                         "n":  "Section6",
+                         "h":  2115,
+                         "sup":  false,
+                         "np":  [
+                                    false,
+                                    false
+                                ],
+                         "ka":  true,
+                         "o":  [
+                                   {
+                                       "k":  2,
+                                       "n":  "Text8",
+                                       "x":  1560,
+                                       "y":  0,
+                                       "w":  9240,
+                                       "h":  1830,
+                                       "Suppress":  false,
+                                       "HorAlignment":  1,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  true,
+                                       "SuppressIfDuplicated":  false,
+                                       "t":  "        ¾Ö¸üß»Ö ×¾ÖÂÖµÖÖÃÖ †®ÖãÃÖºþÞÖ Ø¾Ö®ÖŸÖß Ûúß, , ´ÖÖ—Öê Ûú¸Óü™ü ÜÖÖŸÖê ®ÖÓ.  327 ´Ö¬Öã®Ö ¸üŒÛú´Ö  ºþ. []  - []  ¯ÖÖšü¾ÖßŸÖ †ÖÆêü. ŸÖ¸üß ×¤ü.  []   ŸÖê  []   µÖÖ úÛúÖ»ÖÖ¾Ö¬ÖßŸÖß»Ö  ¤ãü¬Ö ¯Öê´Öë™ü ¤ãü¬Ö ˆŸ¯ÖÖ¤üÛú µÖÖÓ“Öê ÃÖØ¾ÆüÝ•Ö ÜÖÖŸÖß ¾ÖÝÖÔ Ûú¸üÖ¾Öß Æüß ×¾Ö®ÖÓŸÖß.",
+                                       "font":  "DVBW-TTSurekh",
+                                       "size":  21.75,
+                                       "bold":  true,
+                                       "ital":  false,
+                                       "und":  false
+                                   }
+                               ]
+                     },
+                     {
+                         "n":  "Section7",
+                         "h":  1560,
+                         "sup":  false,
+                         "np":  [
+                                    false,
+                                    false
+                                ],
+                         "ka":  true,
+                         "o":  [
+                                   {
+                                       "k":  2,
+                                       "n":  "Text9",
+                                       "x":  1200,
+                                       "y":  240,
+                                       "w":  3240,
+                                       "h":  960,
+                                       "Suppress":  false,
+                                       "HorAlignment":  1,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  false,
+                                       "SuppressIfDuplicated":  false,
+                                       "t":  "ÃÖÖê²ÖŸÖ - ÜÖÖŸÖê¤üÖ¸ü µÖÖ¤üß\r¯ÖÖ®Öê ÃÖÓÜµÖÖ -  \r",
+                                       "font":  "DVBW-TTSurekh",
+                                       "size":  21.75,
+                                       "bold":  true,
+                                       "ital":  false,
+                                       "und":  false
+                                   },
+                                   {
+                                       "k":  2,
+                                       "n":  "Text10",
+                                       "x":  6480,
+                                       "y":  360,
+                                       "w":  4800,
+                                       "h":  480,
+                                       "Suppress":  false,
+                                       "HorAlignment":  1,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  false,
+                                       "SuppressIfDuplicated":  false,
+                                       "t":  "ÛúôÌûÖ¾Öê , ",
+                                       "font":  "DVBW-TTSurekh",
+                                       "size":  21.75,
+                                       "bold":  true,
+                                       "ital":  false,
+                                       "und":  false
+                                   },
+                                   {
+                                       "k":  2,
+                                       "n":  "Text11",
+                                       "x":  6240,
+                                       "y":  840,
+                                       "w":  4200,
+                                       "h":  480,
+                                       "Suppress":  false,
+                                       "HorAlignment":  1,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  false,
+                                       "SuppressIfDuplicated":  false,
+                                       "t":  "†Ö¯Ö»ÖÖ ×¾ÖÀ¾ÖÖÃÖæ",
+                                       "font":  "DVBW-TTSurekh",
+                                       "size":  21.75,
+                                       "bold":  true,
+                                       "ital":  false,
+                                       "und":  false
+                                   }
+                               ]
+                     },
+                     {
+                         "n":  "Section5",
+                         "h":  220,
+                         "sup":  true,
+                         "np":  [
+                                    false,
+                                    false
+                                ],
+                         "ka":  true,
+                         "o":  [
+
+                               ]
+                     },
+                     {
+                         "n":  "Section4",
+                         "h":  600,
+                         "sup":  true,
+                         "np":  [
+                                    false,
+                                    false
+                                ],
+                         "ka":  true,
+                         "o":  [
+
+                               ]
+                     },
+                     {
+                         "n":  "Section2",
+                         "h":  600,
+                         "sup":  true,
+                         "np":  [
+                                    false,
+                                    false
+                                ],
+                         "ka":  true,
+                         "o":  [
+
+                               ]
+                     }
+                 ],
+    "subs":  {
+
+             }
+}

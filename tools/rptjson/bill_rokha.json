@@ -1,0 +1,1029 @@
+﻿{
+    "sel":  "//{MILK_BILL_HEADER.VYEAR_CODE}={?myear} and {MILK_BILL_HEADER.NFORTNO}={?mfortno}\r\n",
+    "sql":  "SELECT \r\n    \"MILK_BILL_HEADER\".\"NBILLNO\", \"MILK_BILL_HEADER\".\"NCODE\", \"MILK_BILL_HEADER\".\"NNET_AMOUNT\", \"MILK_BILL_HEADER\".\"VYEAR_CODE\", \"MILK_BILL_HEADER\".\"NFORTNO\", \"MILK_SUPPLIER\".\"VNAME\", \"MILK_FORTNIGHT\".\"DSTART_DATE\", \"MILK_FORTNIGHT\".\"DEND_DATE\"\r\nFROM\r\n    \"BGK\".\"MILK_BILL_HEADER\" \"MILK_BILL_HEADER\",\r\n    \"BGK\".\"MILK_SUPPLIER\" \"MILK_SUPPLIER\",\r\n    \"BGK\".\"MILK_FORTNIGHT\" \"MILK_FORTNIGHT\"\r\nWHERE\r\n    \"MILK_BILL_HEADER\".\"NCODE\" = \"MILK_SUPPLIER\".\"NCODE\" AND\r\n    \"MILK_BILL_HEADER\".\"NFORTNO\" = \"MILK_FORTNIGHT\".\"NFORTNO\" AND\r\n    \"MILK_BILL_HEADER\".\"VYEAR_CODE\" = \"MILK_FORTNIGHT\".\"VYEAR_CODE\"\r\nORDER BY\r\n    \"MILK_BILL_HEADER\".\"VYEAR_CODE\" ASC,\r\n    \"MILK_BILL_HEADER\".\"NFORTNO\" ASC,\r\n    \"MILK_BILL_HEADER\".\"NBILLNO\" ASC,\r\n    \"MILK_BILL_HEADER\".\"NCODE\" ASC",
+    "margins":  [
+                    360,
+                    360,
+                    360,
+                    3
+                ],
+    "orient":  1,
+    "formulas":  [
+                     {
+                         "n":  "mltr",
+                         "t":  "if {MILK_BILL_DETAIL.NTIME}=1 then \r\n{MILK_BILL_DETAIL.NLTR}\r\n"
+                     },
+                     {
+                         "n":  "mfat",
+                         "t":  "if {MILK_BILL_DETAIL.NTIME}=1 then \r\n{MILK_BILL_DETAIL.NFAT}\r\n"
+                     },
+                     {
+                         "n":  "msnf",
+                         "t":  "if {MILK_BILL_DETAIL.NTIME}=1 then \r\n{MILK_BILL_DETAIL.NSNF}\r\n"
+                     },
+                     {
+                         "n":  "mrate",
+                         "t":  "if {MILK_BILL_DETAIL.NTIME}=1 then \r\n{MILK_BILL_DETAIL.NRATE}\r\n"
+                     },
+                     {
+                         "n":  "mamt",
+                         "t":  "if {MILK_BILL_DETAIL.NTIME}=1 then \r\n{MILK_BILL_DETAIL.NAMOUNT}\r\n"
+                     },
+                     {
+                         "n":  "eltr",
+                         "t":  "if {MILK_BILL_DETAIL.NTIME}=2 then\r\n{MILK_BILL_DETAIL.NLTR} \r\n"
+                     },
+                     {
+                         "n":  "efat",
+                         "t":  "if {MILK_BILL_DETAIL.NTIME}=2 then \r\n{MILK_BILL_DETAIL.NFAT}\r\n"
+                     },
+                     {
+                         "n":  "esnf",
+                         "t":  "if {MILK_BILL_DETAIL.NTIME}=2 then \r\n{MILK_BILL_DETAIL.NSNF}\r\n"
+                     },
+                     {
+                         "n":  "erate",
+                         "t":  "if {MILK_BILL_DETAIL.NTIME}=2 then \r\n{MILK_BILL_DETAIL.NRATE}\r\n"
+                     },
+                     {
+                         "n":  "eamt",
+                         "t":  "if {MILK_BILL_DETAIL.NTIME}=2 then \r\n{MILK_BILL_DETAIL.NAMOUNT}\r\n"
+                     },
+                     {
+                         "n":  "wrd",
+                         "t":  "mwcToMWrd ({MILK_BILL_HEADER.NNET_AMOUNT})\r\n"
+                     },
+                     {
+                         "n":  "avgtot",
+                         "t":  "if {#avgrate1} \u003e 0 and {#avgrate2}\u003e 0 then \r\n ({#avgrate1} + {#avgrate2})/2 \r\nelse if {#avgrate1} \u003e 0 and {#avgrate2} = 0 then {#avgrate1}\r\nelse if {#avgrate2} \u003e 0 and {#avgrate1} = 0 then {#avgrate2}\r\n\r\n\r\n\r\n"
+                     }
+                 ],
+    "running":  [
+
+                ],
+    "params":  [
+                   "mstart_date",
+                   "mend_date",
+                   "myear",
+                   "mfortno"
+               ],
+    "areas":  [
+                  {
+                      "c":  null,
+                      "s":  [
+                                "Section1"
+                            ],
+                      "k":  1,
+                      "n":  "Area1"
+                  },
+                  {
+                      "c":  null,
+                      "s":  [
+                                "Section2"
+                            ],
+                      "k":  2,
+                      "n":  "Area2"
+                  },
+                  {
+                      "c":  "{MILK_BILL_HEADER.VYEAR_CODE}",
+                      "s":  [
+                                "Section3"
+                            ],
+                      "k":  3,
+                      "n":  "Area3"
+                  },
+                  {
+                      "c":  "{MILK_BILL_HEADER.NFORTNO}",
+                      "s":  [
+                                "Section4"
+                            ],
+                      "k":  3,
+                      "n":  "Area4"
+                  },
+                  {
+                      "c":  "{MILK_BILL_HEADER.NBILLNO}",
+                      "s":  [
+                                "Section5"
+                            ],
+                      "k":  3,
+                      "n":  "Area5"
+                  },
+                  {
+                      "c":  "{MILK_BILL_HEADER.NCODE}",
+                      "s":  [
+                                "Section6"
+                            ],
+                      "k":  3,
+                      "n":  "Area6"
+                  },
+                  {
+                      "c":  null,
+                      "s":  [
+                                "Section7",
+                                "Section8"
+                            ],
+                      "k":  4,
+                      "n":  "Area7"
+                  },
+                  {
+                      "c":  "{MILK_BILL_HEADER.NCODE}",
+                      "s":  [
+                                "Section9"
+                            ],
+                      "k":  5,
+                      "n":  "Area8"
+                  },
+                  {
+                      "c":  "{MILK_BILL_HEADER.NBILLNO}",
+                      "s":  [
+                                "Section10"
+                            ],
+                      "k":  5,
+                      "n":  "Area9"
+                  },
+                  {
+                      "c":  "{MILK_BILL_HEADER.NFORTNO}",
+                      "s":  [
+                                "Section11"
+                            ],
+                      "k":  5,
+                      "n":  "Area10"
+                  },
+                  {
+                      "c":  "{MILK_BILL_HEADER.VYEAR_CODE}",
+                      "s":  [
+                                "Section12"
+                            ],
+                      "k":  5,
+                      "n":  "Area11"
+                  },
+                  {
+                      "c":  null,
+                      "s":  [
+                                "Section13"
+                            ],
+                      "k":  8,
+                      "n":  "Area12"
+                  },
+                  {
+                      "c":  null,
+                      "s":  [
+                                "Section14",
+                                "Section15"
+                            ],
+                      "k":  7,
+                      "n":  "Area13"
+                  }
+              ],
+    "sections":  [
+                     {
+                         "n":  "Section1",
+                         "h":  220,
+                         "sup":  true,
+                         "np":  [
+                                    false,
+                                    false
+                                ],
+                         "ka":  true,
+                         "o":  [
+
+                               ]
+                     },
+                     {
+                         "n":  "Section2",
+                         "h":  2676,
+                         "sup":  false,
+                         "np":  [
+                                    false,
+                                    false
+                                ],
+                         "ka":  true,
+                         "o":  [
+                                   {
+                                       "k":  2,
+                                       "n":  "Text2",
+                                       "x":  4270,
+                                       "y":  704,
+                                       "w":  2882,
+                                       "h":  540,
+                                       "Suppress":  false,
+                                       "HorAlignment":  2,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  false,
+                                       "SuppressIfDuplicated":  false,
+                                       "t":  " ¸üÖêÜÖ µÖÖ¤üß ",
+                                       "font":  "DVBW-TTSurekh",
+                                       "size":  23.25,
+                                       "bold":  true,
+                                       "ital":  false,
+                                       "und":  false
+                                   },
+                                   {
+                                       "k":  1,
+                                       "n":  "Field1",
+                                       "x":  3963,
+                                       "y":  1408,
+                                       "w":  5008,
+                                       "h":  281,
+                                       "Suppress":  false,
+                                       "HorAlignment":  0,
+                                       "DecimalPlaces":  2,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  false,
+                                       "SuppressIfDuplicated":  false,
+                                       "DateOrder":  1,
+                                       "YearType":  1,
+                                       "MonthType":  1,
+                                       "DayType":  1,
+                                       "DateFirstSeparator":  "/",
+                                       "DateSecondSeparator":  "/",
+                                       "ThousandsSeparators":  true,
+                                       "SuppressIfZero":  false,
+                                       "UseSystemDefaults":  true,
+                                       "f":  "{MILK_FORTNIGHT.DSTART_DATE}",
+                                       "font":  "DVBW-TTSurekh",
+                                       "size":  14.25,
+                                       "bold":  true,
+                                       "ital":  false,
+                                       "und":  false
+                                   },
+                                   {
+                                       "k":  1,
+                                       "n":  "Field2",
+                                       "x":  6210,
+                                       "y":  1344,
+                                       "w":  1941,
+                                       "h":  281,
+                                       "Suppress":  false,
+                                       "HorAlignment":  0,
+                                       "DecimalPlaces":  2,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  false,
+                                       "SuppressIfDuplicated":  false,
+                                       "DateOrder":  1,
+                                       "YearType":  1,
+                                       "MonthType":  1,
+                                       "DayType":  1,
+                                       "DateFirstSeparator":  "/",
+                                       "DateSecondSeparator":  "/",
+                                       "ThousandsSeparators":  true,
+                                       "SuppressIfZero":  false,
+                                       "UseSystemDefaults":  true,
+                                       "f":  "{MILK_FORTNIGHT.DEND_DATE}",
+                                       "font":  "DVBW-TTSurekh",
+                                       "size":  14.25,
+                                       "bold":  true,
+                                       "ital":  false,
+                                       "und":  false
+                                   },
+                                   {
+                                       "k":  2,
+                                       "n":  "Text3",
+                                       "x":  2055,
+                                       "y":  1408,
+                                       "w":  1908,
+                                       "h":  300,
+                                       "Suppress":  false,
+                                       "HorAlignment":  2,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  false,
+                                       "SuppressIfDuplicated":  false,
+                                       "t":  "×¤ü®ÖÖÓÛúÖ ¯ÖÖÃÖã®Ö ",
+                                       "font":  "DVBW-TTSurekh",
+                                       "size":  14.25,
+                                       "bold":  true,
+                                       "ital":  false,
+                                       "und":  false
+                                   },
+                                   {
+                                       "k":  2,
+                                       "n":  "Text4",
+                                       "x":  5632,
+                                       "y":  1408,
+                                       "w":  432,
+                                       "h":  288,
+                                       "Suppress":  false,
+                                       "HorAlignment":  2,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  false,
+                                       "SuppressIfDuplicated":  false,
+                                       "t":  "ŸÖê",
+                                       "font":  "DVBW-TTSurekh",
+                                       "size":  14.25,
+                                       "bold":  true,
+                                       "ital":  false,
+                                       "und":  false
+                                   },
+                                   {
+                                       "k":  2,
+                                       "n":  "Text5",
+                                       "x":  983,
+                                       "y":  1920,
+                                       "w":  1001,
+                                       "h":  288,
+                                       "Suppress":  false,
+                                       "HorAlignment":  2,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  false,
+                                       "SuppressIfDuplicated":  false,
+                                       "t":  "ÛúÖê›ü ",
+                                       "font":  "DVBW-TTSurekh",
+                                       "size":  14.25,
+                                       "bold":  true,
+                                       "ital":  false,
+                                       "und":  false
+                                   },
+                                   {
+                                       "k":  2,
+                                       "n":  "Text6",
+                                       "x":  2176,
+                                       "y":  1920,
+                                       "w":  3584,
+                                       "h":  288,
+                                       "Suppress":  false,
+                                       "HorAlignment":  2,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  false,
+                                       "SuppressIfDuplicated":  false,
+                                       "t":  "®ÖÖÓ¾Ö ",
+                                       "font":  "DVBW-TTSurekh",
+                                       "size":  14.25,
+                                       "bold":  true,
+                                       "ital":  false,
+                                       "und":  false
+                                   },
+                                   {
+                                       "k":  2,
+                                       "n":  "Text10",
+                                       "x":  6060,
+                                       "y":  1920,
+                                       "w":  1628,
+                                       "h":  360,
+                                       "Suppress":  false,
+                                       "HorAlignment":  2,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  false,
+                                       "SuppressIfDuplicated":  false,
+                                       "t":  "×®Ö¾¾Öôû ¤êüµÖ  ºþ¯ÖµÖê ",
+                                       "font":  "DVBW-TTSurekh",
+                                       "size":  14.25,
+                                       "bold":  true,
+                                       "ital":  false,
+                                       "und":  false
+                                   },
+                                   {
+                                       "k":  3,
+                                       "n":  "Line1",
+                                       "x":  877,
+                                       "y":  1815,
+                                       "w":  null,
+                                       "h":  null,
+                                       "Suppress":  false,
+                                       "LineColor":  0,
+                                       "Right":  10080,
+                                       "Bottom":  1815,
+                                       "LineStyle":  1,
+                                       "LineThickness":  20,
+                                       "ExtendToBottomOfSection":  false,
+                                       "end":  "Section2"
+                                   },
+                                   {
+                                       "k":  3,
+                                       "n":  "Line2",
+                                       "x":  877,
+                                       "y":  2592,
+                                       "w":  null,
+                                       "h":  null,
+                                       "Suppress":  false,
+                                       "LineColor":  0,
+                                       "Right":  10080,
+                                       "Bottom":  2592,
+                                       "LineStyle":  1,
+                                       "LineThickness":  20,
+                                       "ExtendToBottomOfSection":  false,
+                                       "end":  "Section2"
+                                   },
+                                   {
+                                       "k":  1,
+                                       "n":  "Field3",
+                                       "x":  492,
+                                       "y":  192,
+                                       "w":  10580,
+                                       "h":  384,
+                                       "Suppress":  false,
+                                       "HorAlignment":  2,
+                                       "DecimalPlaces":  2,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  false,
+                                       "SuppressIfDuplicated":  false,
+                                       "DateOrder":  0,
+                                       "YearType":  0,
+                                       "MonthType":  1,
+                                       "DayType":  1,
+                                       "DateFirstSeparator":  "-",
+                                       "DateSecondSeparator":  "-",
+                                       "ThousandsSeparators":  true,
+                                       "SuppressIfZero":  false,
+                                       "UseSystemDefaults":  true,
+                                       "f":  "ReportTitle",
+                                       "font":  "DVBW-TTSurekh",
+                                       "size":  20.25,
+                                       "bold":  true,
+                                       "ital":  false,
+                                       "und":  false
+                                   },
+                                   {
+                                       "k":  3,
+                                       "n":  "Line5",
+                                       "x":  870,
+                                       "y":  1845,
+                                       "w":  null,
+                                       "h":  null,
+                                       "Suppress":  false,
+                                       "LineColor":  0,
+                                       "Right":  870,
+                                       "Bottom":  705,
+                                       "LineStyle":  1,
+                                       "LineThickness":  20,
+                                       "ExtendToBottomOfSection":  false,
+                                       "end":  "Section13"
+                                   },
+                                   {
+                                       "k":  3,
+                                       "n":  "Line6",
+                                       "x":  2112,
+                                       "y":  1856,
+                                       "w":  null,
+                                       "h":  null,
+                                       "Suppress":  false,
+                                       "LineColor":  0,
+                                       "Right":  2112,
+                                       "Bottom":  716,
+                                       "LineStyle":  1,
+                                       "LineThickness":  20,
+                                       "ExtendToBottomOfSection":  false,
+                                       "end":  "Section13"
+                                   },
+                                   {
+                                       "k":  3,
+                                       "n":  "Line7",
+                                       "x":  5888,
+                                       "y":  1856,
+                                       "w":  null,
+                                       "h":  null,
+                                       "Suppress":  false,
+                                       "LineColor":  0,
+                                       "Right":  5888,
+                                       "Bottom":  716,
+                                       "LineStyle":  1,
+                                       "LineThickness":  20,
+                                       "ExtendToBottomOfSection":  false,
+                                       "end":  "Section13"
+                                   },
+                                   {
+                                       "k":  3,
+                                       "n":  "Line8",
+                                       "x":  7872,
+                                       "y":  1856,
+                                       "w":  null,
+                                       "h":  null,
+                                       "Suppress":  false,
+                                       "LineColor":  0,
+                                       "Right":  7872,
+                                       "Bottom":  716,
+                                       "LineStyle":  1,
+                                       "LineThickness":  20,
+                                       "ExtendToBottomOfSection":  false,
+                                       "end":  "Section13"
+                                   },
+                                   {
+                                       "k":  3,
+                                       "n":  "Line9",
+                                       "x":  10080,
+                                       "y":  1792,
+                                       "w":  null,
+                                       "h":  null,
+                                       "Suppress":  false,
+                                       "LineColor":  0,
+                                       "Right":  10080,
+                                       "Bottom":  704,
+                                       "LineStyle":  1,
+                                       "LineThickness":  20,
+                                       "ExtendToBottomOfSection":  false,
+                                       "end":  "Section13"
+                                   },
+                                   {
+                                       "k":  2,
+                                       "n":  "Text1",
+                                       "x":  8073,
+                                       "y":  1920,
+                                       "w":  1847,
+                                       "h":  704,
+                                       "Suppress":  false,
+                                       "HorAlignment":  2,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  true,
+                                       "SuppressIfDuplicated":  false,
+                                       "t":  "¸üÖêÜÖ ¸üŒÛú´Ö ×´ÖôÌûÖ»Öê ²Ö§ü»Ö ÃÖÆüß / †ÓÝÖšüÖ",
+                                       "font":  "DVBW-TTSurekh",
+                                       "size":  14.25,
+                                       "bold":  true,
+                                       "ital":  false,
+                                       "und":  false
+                                   }
+                               ]
+                     },
+                     {
+                         "n":  "Section3",
+                         "h":  226,
+                         "sup":  true,
+                         "np":  [
+                                    false,
+                                    false
+                                ],
+                         "ka":  true,
+                         "o":  [
+
+                               ]
+                     },
+                     {
+                         "n":  "Section4",
+                         "h":  226,
+                         "sup":  true,
+                         "np":  [
+                                    false,
+                                    false
+                                ],
+                         "ka":  true,
+                         "o":  [
+
+                               ]
+                     },
+                     {
+                         "n":  "Section5",
+                         "h":  337,
+                         "sup":  true,
+                         "np":  [
+                                    false,
+                                    false
+                                ],
+                         "ka":  true,
+                         "o":  [
+
+                               ]
+                     },
+                     {
+                         "n":  "Section6",
+                         "h":  226,
+                         "sup":  true,
+                         "np":  [
+                                    false,
+                                    false
+                                ],
+                         "ka":  true,
+                         "o":  [
+
+                               ]
+                     },
+                     {
+                         "n":  "Section7",
+                         "h":  392,
+                         "sup":  false,
+                         "np":  [
+                                    false,
+                                    false
+                                ],
+                         "ka":  true,
+                         "o":  [
+                                   {
+                                       "k":  1,
+                                       "n":  "Field6",
+                                       "x":  1152,
+                                       "y":  0,
+                                       "w":  576,
+                                       "h":  281,
+                                       "Suppress":  false,
+                                       "HorAlignment":  1,
+                                       "DecimalPlaces":  0,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  false,
+                                       "SuppressIfDuplicated":  false,
+                                       "DateOrder":  0,
+                                       "YearType":  0,
+                                       "MonthType":  1,
+                                       "DayType":  1,
+                                       "DateFirstSeparator":  "-",
+                                       "DateSecondSeparator":  "-",
+                                       "ThousandsSeparators":  true,
+                                       "SuppressIfZero":  false,
+                                       "UseSystemDefaults":  false,
+                                       "f":  "{MILK_BILL_HEADER.NCODE}",
+                                       "font":  "DVBW-TTSurekh",
+                                       "size":  14.25,
+                                       "bold":  false,
+                                       "ital":  false,
+                                       "und":  false
+                                   },
+                                   {
+                                       "k":  1,
+                                       "n":  "Field7",
+                                       "x":  2198,
+                                       "y":  0,
+                                       "w":  3995,
+                                       "h":  319,
+                                       "Suppress":  false,
+                                       "HorAlignment":  0,
+                                       "DecimalPlaces":  2,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  true,
+                                       "SuppressIfDuplicated":  false,
+                                       "DateOrder":  0,
+                                       "YearType":  0,
+                                       "MonthType":  1,
+                                       "DayType":  1,
+                                       "DateFirstSeparator":  "-",
+                                       "DateSecondSeparator":  "-",
+                                       "ThousandsSeparators":  true,
+                                       "SuppressIfZero":  false,
+                                       "UseSystemDefaults":  true,
+                                       "f":  "{MILK_SUPPLIER.VNAME}",
+                                       "font":  "DVBW-TTSurekh",
+                                       "size":  15.75,
+                                       "bold":  true,
+                                       "ital":  false,
+                                       "und":  false
+                                   },
+                                   {
+                                       "k":  1,
+                                       "n":  "Field11",
+                                       "x":  6068,
+                                       "y":  0,
+                                       "w":  1620,
+                                       "h":  281,
+                                       "Suppress":  false,
+                                       "HorAlignment":  0,
+                                       "DecimalPlaces":  2,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  false,
+                                       "SuppressIfDuplicated":  false,
+                                       "DateOrder":  0,
+                                       "YearType":  0,
+                                       "MonthType":  1,
+                                       "DayType":  1,
+                                       "DateFirstSeparator":  "-",
+                                       "DateSecondSeparator":  "-",
+                                       "ThousandsSeparators":  false,
+                                       "SuppressIfZero":  false,
+                                       "UseSystemDefaults":  false,
+                                       "f":  "{MILK_BILL_HEADER.NNET_AMOUNT}",
+                                       "font":  "DVBW-TTSurekh",
+                                       "size":  14.25,
+                                       "bold":  true,
+                                       "ital":  false,
+                                       "und":  false
+                                   }
+                               ]
+                     },
+                     {
+                         "n":  "Section8",
+                         "h":  360,
+                         "sup":  false,
+                         "np":  [
+                                    false,
+                                    false
+                                ],
+                         "ka":  true,
+                         "o":  [
+                                   {
+                                       "k":  3,
+                                       "n":  "Line10",
+                                       "x":  877,
+                                       "y":  320,
+                                       "w":  null,
+                                       "h":  null,
+                                       "Suppress":  false,
+                                       "LineColor":  0,
+                                       "Right":  10080,
+                                       "Bottom":  320,
+                                       "LineStyle":  1,
+                                       "LineThickness":  20,
+                                       "ExtendToBottomOfSection":  false,
+                                       "end":  "Section8"
+                                   }
+                               ]
+                     },
+                     {
+                         "n":  "Section9",
+                         "h":  514,
+                         "sup":  true,
+                         "np":  [
+                                    false,
+                                    false
+                                ],
+                         "ka":  true,
+                         "o":  [
+                                   {
+                                       "k":  4,
+                                       "n":  "Box1",
+                                       "x":  210,
+                                       "y":  105,
+                                       "w":  null,
+                                       "h":  null,
+                                       "Suppress":  false,
+                                       "LineColor":  0,
+                                       "Right":  285,
+                                       "Bottom":  105,
+                                       "LineStyle":  1,
+                                       "LineThickness":  20,
+                                       "ExtendToBottomOfSection":  false,
+                                       "CornerEllipseHeight":  0,
+                                       "FillColor":  4294967295
+                                   }
+                               ]
+                     },
+                     {
+                         "n":  "Section10",
+                         "h":  675,
+                         "sup":  true,
+                         "np":  [
+                                    false,
+                                    false
+                                ],
+                         "ka":  true,
+                         "o":  [
+
+                               ]
+                     },
+                     {
+                         "n":  "Section11",
+                         "h":  220,
+                         "sup":  true,
+                         "np":  [
+                                    false,
+                                    false
+                                ],
+                         "ka":  true,
+                         "o":  [
+
+                               ]
+                     },
+                     {
+                         "n":  "Section12",
+                         "h":  220,
+                         "sup":  true,
+                         "np":  [
+                                    false,
+                                    false
+                                ],
+                         "ka":  true,
+                         "o":  [
+
+                               ]
+                     },
+                     {
+                         "n":  "Section13",
+                         "h":  1288,
+                         "sup":  false,
+                         "np":  [
+                                    false,
+                                    false
+                                ],
+                         "ka":  true,
+                         "o":  [
+                                   {
+                                       "k":  1,
+                                       "n":  "Field19",
+                                       "x":  5952,
+                                       "y":  256,
+                                       "w":  1736,
+                                       "h":  281,
+                                       "Suppress":  false,
+                                       "HorAlignment":  0,
+                                       "DecimalPlaces":  2,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  false,
+                                       "SuppressIfDuplicated":  false,
+                                       "DateOrder":  0,
+                                       "YearType":  0,
+                                       "MonthType":  1,
+                                       "DayType":  1,
+                                       "DateFirstSeparator":  "-",
+                                       "DateSecondSeparator":  "-",
+                                       "ThousandsSeparators":  false,
+                                       "SuppressIfZero":  false,
+                                       "UseSystemDefaults":  false,
+                                       "f":  "Sum ({MILK_BILL_HEADER.NNET_AMOUNT})",
+                                       "font":  "DVBW-TTSurekh",
+                                       "size":  14.25,
+                                       "bold":  true,
+                                       "ital":  false,
+                                       "und":  false
+                                   },
+                                   {
+                                       "k":  3,
+                                       "n":  "Line3",
+                                       "x":  877,
+                                       "y":  108,
+                                       "w":  null,
+                                       "h":  null,
+                                       "Suppress":  false,
+                                       "LineColor":  0,
+                                       "Right":  10080,
+                                       "Bottom":  108,
+                                       "LineStyle":  1,
+                                       "LineThickness":  20,
+                                       "ExtendToBottomOfSection":  false,
+                                       "end":  "Section13"
+                                   },
+                                   {
+                                       "k":  3,
+                                       "n":  "Line4",
+                                       "x":  877,
+                                       "y":  720,
+                                       "w":  null,
+                                       "h":  null,
+                                       "Suppress":  false,
+                                       "LineColor":  0,
+                                       "Right":  10080,
+                                       "Bottom":  720,
+                                       "LineStyle":  1,
+                                       "LineThickness":  20,
+                                       "ExtendToBottomOfSection":  false,
+                                       "end":  "Section13"
+                                   },
+                                   {
+                                       "k":  2,
+                                       "n":  "Text7",
+                                       "x":  3804,
+                                       "y":  256,
+                                       "w":  1628,
+                                       "h":  360,
+                                       "Suppress":  false,
+                                       "HorAlignment":  2,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  false,
+                                       "SuppressIfDuplicated":  false,
+                                       "t":  "‹ÛæúÞÖ ¸üŒÛú´Ö ",
+                                       "font":  "DVBW-TTSurekh",
+                                       "size":  14.25,
+                                       "bold":  true,
+                                       "ital":  false,
+                                       "und":  false
+                                   }
+                               ]
+                     },
+                     {
+                         "n":  "Section14",
+                         "h":  678,
+                         "sup":  true,
+                         "np":  [
+                                    false,
+                                    false
+                                ],
+                         "ka":  true,
+                         "o":  [
+                                   {
+                                       "k":  1,
+                                       "n":  "Field24",
+                                       "x":  10377,
+                                       "y":  452,
+                                       "w":  765,
+                                       "h":  226,
+                                       "Suppress":  false,
+                                       "HorAlignment":  0,
+                                       "DecimalPlaces":  0,
+                                       "TextColor":  0,
+                                       "BackColor":  4294967295,
+                                       "BorderColor":  0,
+                                       "LeftLineStyle":  0,
+                                       "RightLineStyle":  0,
+                                       "TopLineStyle":  0,
+                                       "BottomLineStyle":  0,
+                                       "CanGrow":  false,
+                                       "SuppressIfDuplicated":  false,
+                                       "DateOrder":  0,
+                                       "YearType":  0,
+                                       "MonthType":  1,
+                                       "DayType":  1,
+                                       "DateFirstSeparator":  "-",
+                                       "DateSecondSeparator":  "-",
+                                       "ThousandsSeparators":  true,
+                                       "SuppressIfZero":  false,
+                                       "UseSystemDefaults":  true,
+                                       "f":  "PageNumber",
+                                       "font":  "Times New Roman",
+                                       "size":  9.75,
+                                       "bold":  false,
+                                       "ital":  false,
+                                       "und":  false
+                                   }
+                               ]
+                     },
+                     {
+                         "n":  "Section15",
+                         "h":  123,
+                         "sup":  true,
+                         "np":  [
+                                    false,
+                                    false
+                                ],
+                         "ka":  true,
+                         "o":  [
+
+                               ]
+                     }
+                 ],
+    "subs":  {
+
+             }
+}

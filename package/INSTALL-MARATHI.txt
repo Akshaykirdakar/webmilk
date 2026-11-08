@@ -1,0 +1,38 @@
+﻿Milk Billing (वेब) - दुसऱ्या संगणकावर इन्स्टॉल करणे
+=====================================================
+
+या संगणकावर Oracle XE डेटाबेस (bgk) आधीच आहे असे धरले आहे. फक्त सॉफ्टवेअर टाकायचे आहे.
+
+अगोदर लागणारे (VB प्रोग्राम चालत असेल तर हे सर्व आधीच असते):
+  1. Oracle XE 11g चालू (OracleServiceXE) व त्यात bgk/bgk युजर.
+  2. Crystal Reports 8.5 runtime (रिपोर्ट प्रिंटसाठी) व tnsnames.ora मध्ये bgkdata नाव.
+  3. Google Chrome किंवा Microsoft Edge.
+  .NET, Ghostscript, मराठी फॉन्ट वेगळे टाकावे लागत नाहीत - ते या फोल्डरमध्येच आहेत.
+
+इन्स्टॉल:
+  1. MilkBilling.zip नवीन संगणकावर कॉपी करा व एखाद्या कायमच्या जागी Extract करा,
+     उदा.  D:\MilkBilling   (Desktop / Downloads मध्ये नको).
+  2. D:\MilkBilling\install.bat वर Right-click > "Run as administrator".
+     हे आपोआप करते:
+       - डेटाबेस जोडणी तपासणे व procedures compile करणे (01_recompile_objects.sql)
+       - Crystal Reports, bgkdata, मराठी फॉन्ट तपासणे (नसलेले फॉन्ट टाकणे)
+       - Firewall मध्ये पोर्ट 5080 उघडणे (मोबाईल / इतर संगणकांसाठी)
+       - Desktop वर "Milk Billing" आयकॉन
+       - Windows सुरू होताच सर्व्हर आपोआप सुरू
+     शेवटी हिरवे [OK] / पिवळे [!!] दिसतील. पिवळ्या ओळीत जे सांगितले ते करा.
+  3. Desktop वरील "Milk Billing" आयकॉन दाबा. लॉगिन: admin / admin@123
+
+डेटाबेस वेगळा असेल तर (दुसरे नाव / पासवर्ड / दुसरा संगणक):
+  app\appsettings.json उघडून ही ओळ बदला व install.bat परत चालवा:
+    "Oracle": "User Id=bgk;Password=bgk;Data Source=localhost:1521/XE;..."
+  (उदा. दुसऱ्या संगणकावरील डेटाबेस:  Data Source=192.168.0.50:1521/XE)
+  रिपोर्टसाठी Crystal:User / Password / Server (bgkdata) सुद्धा त्याच फाईलमध्ये आहेत.
+
+युजर / पासवर्ड बदलणे:  app\appsettings.json मध्ये "Auth" > "Users".
+
+मोबाईल:  install.bat च्या शेवटी दाखवलेला पत्ता, उदा.  http://192.168.0.25:5080
+
+सर्व्हर बंद करणे:  टास्कबारवरील MilkBilling.Api विंडो बंद करा. परत सुरू: आयकॉन दाबा.
+
+नवीन आवृत्ती टाकताना:  सर्व्हर बंद करा, नवीन फोल्डर जुन्यावर कॉपी करा
+(app\appsettings.json मध्ये बदल केले असतील तर ती फाईल आधी सांभाळून ठेवा), install.bat परत चालवा.
