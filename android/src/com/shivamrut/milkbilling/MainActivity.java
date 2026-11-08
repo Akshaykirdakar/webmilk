@@ -111,7 +111,7 @@ public class MainActivity extends Activity {
     private void askServer(String error) {
         final EditText t = new EditText(this);
         t.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_URI);
-        t.setText(server().isEmpty() ? "http://192.168.0.121:5080" : server());
+        t.setText(server().isEmpty() ? "https://webmilk.bgksoftcomp.in" : server());
         new AlertDialog.Builder(this).setTitle("Server address").setMessage(error).setView(t).setCancelable(false)
             .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override public void onClick(DialogInterface d, int w) {
