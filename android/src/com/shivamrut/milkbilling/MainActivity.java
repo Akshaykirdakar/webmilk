@@ -58,7 +58,6 @@ public class MainActivity extends Activity {
             @Override public void onCloseWindow(WebView w) { finish(); }
         });
         setContentView(web);
-        askPermissions();
         if (server().isEmpty()) askServer(null); else open();
     }
 
@@ -66,12 +65,46 @@ public class MainActivity extends Activity {
 
     private String server() { return prefs().getString("url", ""); }
 
+    private boolean smsLater;   // "Later" pressed: don't ask again until the app is started again
+
+    private boolean hasSms() {
+        return Build.VERSION.SDK_INT < 23 || checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED;
+    }
+
+    /** Asks for SMS (and notifications); when Android no longer shows the question, explains how to allow it in Settings. */
     private void askPermissions() {
-        if (Build.VERSION.SDK_INT < 23) return;
-        boolean sms = checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED;
-        if (!sms) requestPermissions(Build.VERSION.SDK_INT >= 33
-            ? new String[]{Manifest.permission.SEND_SMS, "android.permission.POST_NOTIFICATIONS"}
-            : new String[]{Manifest.permission.SEND_SMS}, 1);
+        if (hasSms() || smsLater) return;
+        if (!prefs().getBoolean("smsAsked", false) || shouldShowRequestPermissionRationale(Manifest.permission.SEND_SMS)) {
+            prefs().edit().putBoolean("smsAsked", true).apply();
+            requestPermissions(Build.VERSION.SDK_INT >= 33
+                ? new String[]{Manifest.permission.SEND_SMS, "android.permission.POST_NOTIFICATIONS"}
+                : new String[]{Manifest.permission.SEND_SMS}, 1);
+        } else smsSettings();
+    }
+
+    @Override public void onRequestPermissionsResult(int code, String[] perms, int[] results) {
+        if (!hasSms() && !shouldShowRequestPermissionRationale(Manifest.permission.SEND_SMS)) smsSettings();
+    }
+
+    @Override protected void onResume() {
+        super.onResume();
+        askPermissions();   // also after coming back from Settings
+    }
+
+    private void smsSettings() {
+        new AlertDialog.Builder(this).setTitle("SMS permission is off")
+            .setMessage("This phone cannot send the Milk Billing SMS until SMS is allowed.\n\n"
+                + "Open settings > Permissions > SMS > Allow.\n\n"
+                + "If it says \"Restricted setting\": on the App info page tap ⋮ (top right) > "
+                + "Allow restricted settings, then allow SMS.")
+            .setPositiveButton("Open settings", new DialogInterface.OnClickListener() {
+                @Override public void onClick(DialogInterface d, int w) {
+                    startActivity(new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.fromParts("package", getPackageName(), null)));
+                }
+            })
+            .setNegativeButton("Later", new DialogInterface.OnClickListener() {
+                @Override public void onClick(DialogInterface d, int w) { smsLater = true; }
+            }).show();
     }
 
     /** Server address, asked once; long press of the back key asks again. */

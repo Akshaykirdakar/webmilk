@@ -85,7 +85,8 @@ public class SmsService extends Service {
                 SharedPreferences p = getSharedPreferences(MainActivity.PREFS, Context.MODE_PRIVATE);
                 String url = p.getString("url", ""), token = p.getString("token", "");
                 boolean can = Build.VERSION.SDK_INT < 23 || checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED;
-                if (!url.isEmpty() && !token.isEmpty() && can) wait = work(url, token);
+                if (!can) show("SMS permission is off - open the app to allow it");
+                else if (!url.isEmpty() && !token.isEmpty()) wait = work(url, token);
             } catch (InterruptedException e) {
                 return;
             } catch (Exception e) {
