@@ -14,10 +14,12 @@ JDK="/c/Program Files/Android/Android Studio/jbr"
 JBIN="$JDK/bin"
 export JAVA_HOME="$JDK"
 export PATH="$JBIN:$PATH"
-rm -rf out && mkdir -p out/res out/gen out/classes out/dex
+rm -rf out && mkdir -p out/res out/gen out/classes out/dex out/assets
+# the web pages go inside the app (assets/www); the APK copy kept in frontend for phones to download is left out
+cp -r ../frontend out/assets/www && rm -f out/assets/www/*.apk
 # icon: a simple drop
 "$BT/aapt2$EXE" compile --dir res -o out/res/res.zip
-"$BT/aapt2$EXE" link -o out/base.apk -I "$JAR" --manifest AndroidManifest.xml --java out/gen --min-sdk-version 23 --target-sdk-version 33 out/res/res.zip
+"$BT/aapt2$EXE" link -o out/base.apk -I "$JAR" --manifest AndroidManifest.xml -A out/assets --java out/gen --min-sdk-version 23 --target-sdk-version 33 out/res/res.zip
 "$JBIN/javac$EXE" -nowarn -source 8 -target 8 -bootclasspath "$JAR" -d out/classes -sourcepath src:out/gen \
   src/com/shivamrut/milkbilling/*.java out/gen/com/shivamrut/milkbilling/R.java 2>&1 | grep -v "^Note\|bootstrap\|warning" || true
 "$BT/d8$BAT" --release --lib "$JAR" --min-api 23 --output out/dex out/classes/com/shivamrut/milkbilling/*.class

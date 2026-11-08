@@ -3,9 +3,9 @@ name: Build APK
 on:
   push:
     branches: [main]
-    paths: ['android/**', '.github/workflows/build-apk.yml']
+    paths: ['android/**', 'frontend/**', '.github/workflows/build-apk.yml']
   pull_request:
-    paths: ['android/**', '.github/workflows/build-apk.yml']
+    paths: ['android/**', 'frontend/**', '.github/workflows/build-apk.yml']
   workflow_dispatch:
 
 jobs:
