@@ -34,6 +34,8 @@ public class MainActivity extends Activity {
     static final String PREFS = "milk";
     /** the pages are served to the WebView under this made-up address, see asset() */
     static final String HOST = "appassets.local";
+    /** the server through the Cloudflare tunnel, reachable from anywhere */
+    static final String ONLINE = "https://webmilk.bgksoftcomp.in";
     private WebView web;
 
     @Override protected void onCreate(Bundle b) {
@@ -58,6 +60,8 @@ public class MainActivity extends Activity {
             @Override public void onCloseWindow(WebView w) { finish(); }
         });
         setContentView(web);
+        // the address suggested by version 1.0-2.1 (an old LAN address): move those phones to the internet address
+        if (server().equals("http://192.168.0.121:5080")) prefs().edit().putString("url", ONLINE).apply();
         if (server().isEmpty()) askServer(null); else open();
     }
 
@@ -111,8 +115,14 @@ public class MainActivity extends Activity {
     private void askServer(String error) {
         final EditText t = new EditText(this);
         t.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_URI);
-        t.setText(server().isEmpty() ? "https://webmilk.bgksoftcomp.in" : server());
+        t.setText(server().isEmpty() ? ONLINE : server());
         new AlertDialog.Builder(this).setTitle("Server address").setMessage(error).setView(t).setCancelable(false)
+            .setNeutralButton("Use internet", new DialogInterface.OnClickListener() {
+                @Override public void onClick(DialogInterface d, int w) {
+                    prefs().edit().putString("url", ONLINE).apply();
+                    open();
+                }
+            })
             .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override public void onClick(DialogInterface d, int w) {
                     String u = t.getText().toString().trim().replaceAll("/+$", "");
